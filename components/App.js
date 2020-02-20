@@ -30,7 +30,7 @@ const App = () => {
       setCurrentValue(2, 5, 1, true);
 
       // Line
-      new Array(BOARD_WIDTH - 4).fill(0).forEach((_, index) => {
+      new Array(BOARD_WIDTH - 2).fill(0).forEach((_, index) => {
         setCurrentValue(BOARD_HEIGHT - 1, index, 4, false);
       });
 
@@ -81,8 +81,13 @@ const App = () => {
     setBoard(prevBoard => boardUtils.moveRight(prevBoard));
   };
 
+  const removeFullRows = () => {
+    setBoard(prevBoard => boardUtils.removeFullRows(prevBoard));
+  };
+
   // Game Loop
   useEffect(() => {
+    removeFullRows();
     if (typeof canMoveDown === 'boolean') {
       if (canMoveDown) {
         moveDown();

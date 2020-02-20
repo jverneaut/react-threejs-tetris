@@ -152,3 +152,30 @@ export const stickBoard = board => {
     }))
   );
 };
+
+export const removeFullRows = board => {
+  const isFullRow = row => row.filter(col => col.value === 0).length === 0;
+
+  const width = board[0].length;
+  const height = board.length;
+
+  const emptyBoard = createBoard(width, height);
+  const boardWithoutFullRows = board.filter(row => !isFullRow(row));
+
+  const newBoard = [
+    ...emptyBoard.slice(0, boardWithoutFullRows.length - emptyBoard.length),
+    ...boardWithoutFullRows.slice(
+      boardWithoutFullRows.length - emptyBoard.length,
+      height
+    ),
+  ].map((row, rowIndex) =>
+    row.map((col, colIndex) => ({
+      ...col,
+      row: rowIndex,
+      col: colIndex,
+      index: colIndex + rowIndex * width,
+    }))
+  );
+
+  return newBoard;
+};
