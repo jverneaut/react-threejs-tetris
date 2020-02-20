@@ -163,11 +163,8 @@ export const removeFullRows = board => {
   const boardWithoutFullRows = board.filter(row => !isFullRow(row));
 
   const newBoard = [
-    ...emptyBoard.slice(0, boardWithoutFullRows.length - emptyBoard.length),
-    ...boardWithoutFullRows.slice(
-      boardWithoutFullRows.length - emptyBoard.length,
-      height
-    ),
+    ...emptyBoard.slice(0, height - boardWithoutFullRows.length),
+    ...boardWithoutFullRows.slice(height - emptyBoard.length, height),
   ].map((row, rowIndex) =>
     row.map((col, colIndex) => ({
       ...col,
