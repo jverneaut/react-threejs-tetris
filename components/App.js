@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Board from './Board';
+import Nav from './Nav';
 
 import useInterval from '../utils/useInterval';
 import * as boardUtils from '../utils/board';
@@ -144,7 +145,12 @@ const App = () => {
     lastDirection.current = [0, 0];
   }, [direction]);
 
-  return <Board board={board} />;
+  return (
+    <>
+      <Nav />
+      <Board board={board} />
+    </>
+  );
 };
 
 export default App;

@@ -2,3 +2,16 @@ body {
   margin: 0;
   font-size: 0;
 }
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 12px;
+}
+
+.nav img {
+  margin: 0 auto;
+  display: block;
+  height: 24px;
+}
