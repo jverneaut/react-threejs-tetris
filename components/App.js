@@ -89,6 +89,10 @@ const App = () => {
     setBoard(prevBoard => boardUtils.addNewShape(prevBoard));
   };
 
+  const rotateShape = () => {
+    setBoard(prevBoard => boardUtils.rotateShape(prevBoard));
+  };
+
   // Game Loop
   useEffect(() => {
     removeFullRows();
@@ -134,6 +138,7 @@ const App = () => {
     if (direction[0] === -1 && canMoveLeft) moveLeft();
     if (direction[0] === 1 && canMoveRight) moveRight();
     if (direction[1] === -1 && canMoveDown) moveDown();
+    if (direction[1] === 1) rotateShape();
 
     setDirection([0, 0]);
     lastDirection.current = [0, 0];

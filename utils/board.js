@@ -188,10 +188,22 @@ export const addNewShape = board => {
     };
   };
 
-  setCurrentValue(0, 4, 1, true);
-  setCurrentValue(1, 4, 1, true);
-  setCurrentValue(1, 5, 1, true);
-  setCurrentValue(2, 5, 1, true);
+  const color = Math.ceil(Math.random() * 4);
 
+  if (Math.random() < 0.5) {
+    setCurrentValue(0, 4, color, true);
+    setCurrentValue(0, 5, color, true);
+    setCurrentValue(1, 4, color, true);
+    setCurrentValue(1, 5, color, true);
+  } else {
+    setCurrentValue(0, 4, color, true);
+    setCurrentValue(1, 4, color, true);
+    setCurrentValue(2, 4, color, true);
+    setCurrentValue(3, 4, color, true);
+  }
   return newBoard;
+};
+
+export const rotateShape = board => {
+  return board;
 };
