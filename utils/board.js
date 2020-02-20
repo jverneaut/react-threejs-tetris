@@ -176,3 +176,22 @@ export const removeFullRows = board => {
 
   return newBoard;
 };
+
+export const addNewShape = board => {
+  const newBoard = JSON.parse(JSON.stringify(board));
+
+  const setCurrentValue = (y, x, value, current = false) => {
+    newBoard[y][x] = {
+      ...newBoard[y][x],
+      current,
+      value,
+    };
+  };
+
+  setCurrentValue(0, 4, 1, true);
+  setCurrentValue(1, 4, 1, true);
+  setCurrentValue(1, 5, 1, true);
+  setCurrentValue(2, 5, 1, true);
+
+  return newBoard;
+};

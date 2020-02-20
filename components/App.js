@@ -85,6 +85,10 @@ const App = () => {
     setBoard(prevBoard => boardUtils.removeFullRows(prevBoard));
   };
 
+  const addNewShape = () => {
+    setBoard(prevBoard => boardUtils.addNewShape(prevBoard));
+  };
+
   // Game Loop
   useEffect(() => {
     removeFullRows();
@@ -93,6 +97,7 @@ const App = () => {
         moveDown();
       } else {
         setBoard(prevBoard => boardUtils.stickBoard(prevBoard));
+        addNewShape();
       }
     }
   }, [tick]);
